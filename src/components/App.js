@@ -40,7 +40,7 @@ class App extends React.Component {
 	search = (search) => {
 		axios
 			.get(
-				`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.state.apiKey}`
+				`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.state.apiKey}`
 			)
 			.then(
 				(res) => this.setState({ gif: res.data.data, rand: '' }),
@@ -53,7 +53,7 @@ class App extends React.Component {
 
 	trending = () => {
 		axios
-			.get(`http://api.giphy.com/v1/gifs/trending?api_key=${this.state.apiKey}`)
+			.get(`https://api.giphy.com/v1/gifs/trending?api_key=${this.state.apiKey}`)
 			.then(
 				(res) => this.setState({ gif: res.data.data, rand: '' }),
 				console.log('trending')
@@ -65,7 +65,7 @@ class App extends React.Component {
 
 	random = () => {
 		axios
-			.get(`http://api.giphy.com/v1/gifs/random?api_key=${this.state.apiKey}`)
+			.get(`https://api.giphy.com/v1/gifs/random?api_key=${this.state.apiKey}`)
 			.then(
 				(res) =>
 					this.setState({ gif: [], rand: res.data.data.images.original.url }),
